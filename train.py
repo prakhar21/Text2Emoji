@@ -52,7 +52,7 @@ def initialize_embeddings():
 
 
 if __name__ == '__main__':
-    data_file = '/home/prakhar/Documents/iiitb/intel/Text2Emoji/data/emoji_train.csv'
+    data_file = './data/emoji_train.csv'
     segment_data(data_file)
     corpus = create_corpus()
 
