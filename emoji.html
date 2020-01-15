@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Emoji Prediction Demo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .textbuttons {
+      text-align: center;
+    } 
+    .form-control{
+      font-family: 'roboto';
+      font-size: 22px;
+    }
+    .info{
+     text-align: center;
+    }
+    #out{
+     text-align: center; 
+      font-family: 'roboto';
+      font-size: 25px;
+    }
+    
+  </style>
+</head>
+<body>
+<div class="container">
+<h2>Text2Emoji Demo</h2>
+<p><b>Text2Emoji</b> is a text classification model trained on <b>200 sentences across 5 classes</b>. Below fig. shows the list of emoji's on which the model is trained on. Text to the side represents a high-level emotion that the emoji depicts.</p>
+  <p class='info'> <img src="static/emoji.png" alt="Emoji Mapping"> </p> 
+  <p></p> 
+<br>
+  <form>
+    <div class="form-group">
+      <label for="comment">Input text:</label>	
+      <textarea class="form-control" rows="1" id="comment"></textarea>
+    </div>
+     <div class="textbuttons">
+      <button type="button" class="btn btn-success" onclick="emojify()">Emojify</button>
+    </div>
+  </form><br><br>
+
+  <div class="output">
+    <p id='out'></p>
+  </div>
+  
+</div>
+
+<script type="text/javascript">
+
+	function emojify(){
+		var input_txt = document.getElementById('comment').value
+		var URL = 'http://0.0.0.0:5000/emojify'
+		var dataString = "text="+input_txt;
+		
+		$.ajax({
+		    type: 'POST',
+		    url: URL,
+		    data: dataString,
+		    success: function(resp) {
+          if (resp.length===0){
+            document.getElementById('out').innerHTML = 'Not Found!'
+          }else{
+            document.getElementById('out').innerHTML = document.getElementById('comment').value + ' ' + resp     
+          }
+          
+		    }
+		});
+	}
+	
+</script>
+	
+</body>
+</html>
