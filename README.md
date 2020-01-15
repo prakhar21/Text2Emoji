@@ -11,7 +11,7 @@ Text2Emoji is a text classification model trained on 200 sentences across 5 clas
 -
 
 ## Methodology
-![Flair Internal](https://github.com/prakhar21/Text2Emoji/blob/master/flair_internal.png)
+![Flair Internal](https://github.com/prakhar21/Text2Emoji/blob/master/flair_internal1.png)
 
 
 ## Model Architecture
