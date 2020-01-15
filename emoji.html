@@ -35,7 +35,7 @@
 <br>
   <form>
     <div class="form-group">
-      <label for="comment">Input text:</label>	
+      <label for="comment">Input text:</label>  
       <textarea class="form-control" rows="1" id="comment"></textarea>
     </div>
      <div class="textbuttons">
@@ -51,27 +51,27 @@
 
 <script type="text/javascript">
 
-	function emojify(){
-		var input_txt = document.getElementById('comment').value
-		var URL = 'http://0.0.0.0:5000/emojify'
-		var dataString = "text="+input_txt;
-		
-		$.ajax({
-		    type: 'POST',
-		    url: URL,
-		    data: dataString,
-		    success: function(resp) {
+  function emojify(){
+    var input_txt = document.getElementById('comment').value
+    var URL = 'http://0.0.0.0:5000/emojify'
+    var dataString = "text="+input_txt;
+    
+    $.ajax({
+        type: 'POST',
+        url: URL,
+        data: dataString,
+        success: function(resp) {
           if (resp.length===0){
             document.getElementById('out').innerHTML = 'Not Found!'
           }else{
-            document.getElementById('out').innerHTML = document.getElementById('comment').value + ' ' + resp     
+            document.getElementById('out').innerHTML = document.getElementById('comment').value + ' ' + resp;
           }
           
-		    }
-		});
-	}
-	
+        }
+    });
+  }
+  
 </script>
-	
+  
 </body>
 </html>
