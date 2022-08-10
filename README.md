@@ -52,5 +52,3 @@ Model: "TextClassifier(
 2. Flair
 3. HTML/Bootstrap
 4. Js
-
-All the code has been run on [Intel Dev Cloud](https://software.intel.com/en-us/devcloud)
